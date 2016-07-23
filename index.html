@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -36,13 +36,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	    if($("#imagen").attr("src")==""){
 		      alert("Antes de registrar el servicio debe tomar una fotografía del mismo ");
 	    }else{
-		      var nom=$("#Nombre").val();
-		      var lat=$("#obtLatitud").val();
+		      var nom=$("#obtnombre").val();
+         var dire=$("#obtdireccion").val();
+         var tel=$("#obttelefono").val();
+          var lat=$("#obtLatitud").val();
 		      var lon=$("#obtLongitud").val();
 		      $.ajax({
 		          type:"POST",
 		          url:"guardar.php",
-		          data:"nombre="+nom+"&dir="+dir+"&Rfc="+rfc+"&tel="+tel+"&classif="+clasif+"&lat="+lat+"&long="+lon,
+		          data:"nombre="+nom+"&dir="+dire+"&tel="+tel+"&lat="+lat+"&long="+lon,
 		          success: guardandoServicios
 		      });
 
@@ -139,8 +141,12 @@ text-align:center;
 	<h1>Registro de Servicios</h1>
       </div>
       <div data-role="content" >
+    <input type="text" id="obtnombre" placeholder="Nombre del negocio" />
+    <input type="text" id="obtdireccion" placeholder="Dirección del negocio" />
+    <input type="text" id="obttelefono" placeholder="Telefono del negocio" />
     <input type="button" id="btnTomarFoto" value="Tomar Foto" >
 	  <div id="regFoto"></div>
+
     <input type="button" id="obtenercord" value="Obtener coordenadas" />
     <input type="text" id="obtLatitud" placeholder="Longitud" />
 	  <input type="text" id="obtLongitud" placeholder="Longitud" />
