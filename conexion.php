@@ -1,14 +1,13 @@
 <?php
 
-/*$usario="u471947948_angel";
+$usario="u471947948_cavi";
 $passwd="dafne832";
 $servidor="mysql.hostinger.mx";
-$BD="u471947948_pc";*/
+$BD="u471947948_serv";
 
-$usario="root";
-$passwd="";
+/*$passwd="";
 $servidor="localhost";
-$BD="servicios";
+$BD="servicios";*/
 
 /*$usario="n260m_14426545";
 $passwd="drag0n";
