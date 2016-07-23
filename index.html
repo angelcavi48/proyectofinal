@@ -56,6 +56,28 @@ document.addEventListener("deviceready", onDeviceReady, false);
   });
 }
 
+$("#btnConsulta").tap(function (){
+			alert("listo");
+			$.ajax({
+				type:"POST",
+				//url:"http://angelcavi48.esy.es/consultaTodo.php",
+				url:"http://angelcavi48.esy.es/consultaTodo.php",
+				data:"",
+				success: function(datos){
+					var reg=$.parseJSON(datos);
+					var result=$("#todosReg");
+					result.append('<table border="1"id="tb1"><th>Id</th><th>nombre</th><th>dir</th><th>tel</th><th>foto</th><th>latitud</th><th>longitud</th>');
+					var fila=$("#tb1");
+					for(var i in reg){
+						fila.append('<tr><td>'+reg[i].Id+'</td><td>'+reg[i].nombre+'</td><td>'+reg[i].dir+'</td><td>'+reg[i].tel+'</td><td>'+reg[i].foto+'</td><td>'+reg[i].latitud+'</td></tr>'+reg[i].longitud+'</td></tr>');
+						}
+					fila.append('</table>');
+					}
+			});
+		});
+
+
+
 function uploadPhoto(foto) {
 	//alert("si entro: "+foto);
 	var options = new FileUploadOptions();
@@ -135,6 +157,28 @@ text-align:center;
 	</div>
       </div>
 </div>
+
+<div data-role="page" id="Consultar">
+	<div data-role="header">
+    	<p>Consultar productos</p>
+    </div>
+    <div data-role="content">
+    	<input type="button" id="btnConsulta" value="Mostrar todo"  />
+        <div id="todosReg"></div>
+        <input type="text" id="idReg"  />
+        <div id="datID"></div>
+        <input type="button" id="btnConId" value="Consultar registro" />
+    </div>
+    <div data-role="footer">
+    	<p>Pie de página</p>
+    </div>
+</div>
+
+
+
+
+
+
 
 <div data-role="page" id="Registrar">
       <div data-role="header" data-position="fixed">

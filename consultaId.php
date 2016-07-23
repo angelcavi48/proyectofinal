@@ -2,7 +2,7 @@
 include "conexion.php";
 $id=$_POST['id'];
 
-$sql="SELECT * FROM servicios where id=$id";
+$sql="SELECT * FROM datosgen where id=$id";
 $result=mysqli_query($conexion,$sql);
 $info= array();
 if($result){
