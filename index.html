@@ -43,7 +43,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		      var lon=$("#obtLongitud").val();
 		      $.ajax({
 		          type:"POST",
-		          url:"guardar.php",
+		          url:"http://angelcavi48.esy.es/guardar.php",
 		          data:"nombre="+nom+"&dir="+dire+"&tel="+tel+"&lat="+lat+"&long="+lon,
 		          success: guardandoServicios
 		      });
