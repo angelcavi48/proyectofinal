@@ -100,7 +100,7 @@ $("#btnConsultaAct").tap(function (){
     success: function(datos){
       var reg=$.parseJSON(datos);
       var result=$("#todosRegAct");
-      result.append('<table border="1"id="tb4"><th>id</th><th>nom</th><th>dir</th><th>tel</th><th>foto</th><th>latitud</th><th>longitud</th>');
+      result.html('<table border="1"id="tb4"><th>id</th><th>nom</th><th>dir</th><th>tel</th><th>foto</th><th>latitud</th><th>longitud</th>');
       var fila=$("#tb4");
       for(var i in reg){
         fila.append('<tr><td>'+reg[i].Id+'</td><td>'+reg[i].nombre+'</td><td>'+reg[i].dir+'</td><td>'+reg[i].tel+'</td><td>'+reg[i].foto+'</td><td>'+reg[i].latitud+'</td></tr>'+reg[i].longitud+'</td></tr>');
