@@ -124,8 +124,8 @@ $("#btnCargDatos").tap(function (){
       $("#n1").val(resp[0].nombre);
       $("#dir1").val(resp[0].dir);
       $("#tel1").val(resp[0].tel);
-      $("#lat1").val(resp[0].Latitud);
-      $("#lon1").val(resp[0].Longitud);
+      $("#lat1").val(resp[0].latitud);
+      $("#lon1").val(resp[0].longitud);
       $("#fot1").val(resp[0].foto);
       }
   });
@@ -147,7 +147,7 @@ $("#btnActId").tap(function (){
       $.ajax({
         type:"POST",
         url:"http://angelcavi48.esy.es/guardarAct.php",
-        data:"id="+id+"&nombre="+nom+"&dir="+dir+"&tel="+tel+"&latitud="+lat+"&longitud="+lon+"&foto="+fot,
+        data:"id="+id+"&nombre="+nom+"&dir="+dir+"&tel="+tel+"&lat="+lat+"&long="+lon+"&foto="+fot,
         success: exeGuardarAct
       });
 
@@ -170,7 +170,7 @@ $("#btnConsultaE").tap(function (){
       result.html('<table border="1"id="tb6"><th>Id</th><th>nombre</th><th>dir</th><th>tel</th><th>latitud</th><th>longitud</th><th>foto</th>');
       var fila=$("#tb6");
       for(var i in reg){
-        fila.append('<tr><td>'+reg[i].id+'</td><td>'+reg[i].nombre+'</td><td>'+reg[i].dir+'</td><td>'+reg[i].tel+'</td><td>'+reg[i].latitud+'</td><td>'+reg[i].longitud+'</td><td>');
+        fila.append('<tr><td>'+reg[i].id+'</td><td>'+reg[i].nombre+'</td><td>'+reg[i].dir+'</td><td>'+reg[i].tel+'</td><td>'+reg[i].latitud+'</td><td>'+reg[i].longitud+'</td><td>'+reg[i].foto+'</td>');
         }
       fila.append('</table>');
       }
@@ -380,8 +380,8 @@ text-align:center;
 	       <h1>Datos de Interes</h1>
       </div>
       <div data-role="content" >
-	       <p>Desarrolldo por: </p>
-         <p>Ing. Alejandro Guzmán Rodríguez </p>
+	       <p>Reingenieria por: </p>
+         <p>Ing.Angel Carcamo Viveros </p>
          <p>Materia: </p>
          <p>Base de Datos para Dispositivos Móviles </p>
          <p>Semestre: </p>
