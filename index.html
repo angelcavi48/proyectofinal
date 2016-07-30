@@ -100,10 +100,10 @@ $("#btnConsultaAct").tap(function (){
     success: function(datos){
       var reg=$.parseJSON(datos);
       var result=$("#todosRegAct");
-      result.html('<table border="1"id="tb4"><th>id</th><th>nom</th><th>dir</th><th>tel</th><th>foto</th><th>latitud</th><th>longitud</th>');
+      result.append('<table border="1"id="tb4"><th>id</th><th>nom</th><th>dir</th><th>tel</th><th>foto</th><th>latitud</th><th>longitud</th>');
       var fila=$("#tb4");
       for(var i in reg){
-        fila.append('<tr><td>'+reg[i].IdServicios+'</td><td>'+reg[i].NombreServicio+'</td><td>'+reg[i].Direccion+'</td><td>'+reg[i].Telefono+'</td><td>'+reg[i].Latitud+'</td><td>'+reg[i].Longitud+'</td><td>'+reg[i].Foto+'</td><td>');
+        fila.append('<tr><td>'+reg[i].Id+'</td><td>'+reg[i].nombre+'</td><td>'+reg[i].dir+'</td><td>'+reg[i].tel+'</td><td>'+reg[i].foto+'</td><td>'+reg[i].latitud+'</td></tr>'+reg[i].longitud+'</td></tr>');
         }
       fila.append('</table>');
       }
