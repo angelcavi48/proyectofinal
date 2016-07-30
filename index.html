@@ -81,7 +81,7 @@ function uploadPhoto(foto) {
 	var params = {};
 	params.value1 = "test";
 	params.value2 = "param";
-	options.params = params;
+	options.params = "params";
 
 	var ft = new FileTransfer();
 	ft.upload(foto,"http://angelcavi48.esy.es/subirArchivo.php",function(r){
@@ -100,7 +100,7 @@ $("#btnConsultaAct").tap(function (){
     success: function(datos){
       var reg=$.parseJSON(datos);
       var result=$("#todosRegAct");
-      result.html('<table border="1"id="tb4"><th>id</th><th>nombre</th><th>dir</th><th>tel</th><th>foto</th><th>latitud</th><th>longitud</th>');
+      result.html('<table border="1"id="tb4"><th>id</th><th>nom</th><th>dir</th><th>tel</th><th>foto</th><th>latitud</th><th>longitud</th>');
       var fila=$("#tb4");
       for(var i in reg){
         fila.append('<tr><td>'+reg[i].IdServicios+'</td><td>'+reg[i].NombreServicio+'</td><td>'+reg[i].Direccion+'</td><td>'+reg[i].Telefono+'</td><td>'+reg[i].Latitud+'</td><td>'+reg[i].Longitud+'</td><td>'+reg[i].Foto+'</td><td>');
@@ -119,7 +119,7 @@ $("#btnCargDatos").tap(function (){
     success: function(datos){
       var resp=$.parseJSON(datos);
       var controles=$("#datIDAct");
-      controles.html('ID:<input type="text" id="id1" disabled="true"/><br />Nombre:<input type="text" id="n1" /><br />Dirección:<input type="text" id="dir1" /><br />Teléfono:<input type="text" id="tel1" /><br />Latitude:<input type="text" id="lat1" /><br />Longitude:<input type="text" id="lon1" /><br />Foto:<input type="text" id="fot1" /><br />');
+      controles.html('ID:<input type="text" id="id1" disabled="true"/><br />nombre:<input type="text" id="n1" /><br />Dirección:<input type="text" id="dir1" /><br />Teléfono:<input type="text" id="tel1" /><br />Latitude:<input type="text" id="lat1" /><br />Longitude:<input type="text" id="lon1" /><br />Foto:<input type="text" id="fot1" /><br />');
       $("#id1").val(resp[0].IdServicios);
       $("#n1").val(resp[0].NombreServicio);
       $("#dir1").val(resp[0].Direccion);
@@ -147,7 +147,7 @@ $("#btnActId").tap(function (){
       $.ajax({
         type:"POST",
         url:"http://angelcavi48.esy.es/guardarAct.php",
-        data:"id="+id+"&nombre="+nom+"&dir="+dir+"&tel="+tel+"&lat="+lat+"&long="+lon+"&fot="+fot,
+        data:"id="+id+"&nombre="+nom+"&dir="+dir+"&tel="+tel+"&latitud="+lat+"&longitud="+lon+"&fot0="+fot,
         success: exeGuardarAct
       });
 
@@ -167,7 +167,7 @@ $("#btnConsultaE").tap(function (){
     success: function(datos){
       var reg=$.parseJSON(datos);
       var result=$("#todosRegE");
-      result.html('<table border="1"id="tb6"><th>Id</th><th>Nombre</th><th>dir</th><th>Telefono</th><th>latitud</th><th>longitud</th><th>foto</th>');
+      result.html('<table border="1"id="tb6"><th>Id</th><th>nombre</th><th>dir</th><th>tel</th><th>latitud</th><th>longitud</th><th>foto</th>');
       var fila=$("#tb6");
       for(var i in reg){
         fila.append('<tr><td>'+reg[i].IdServicios+'</td><td>'+reg[i].NombreServicio+'</td><td>'+reg[i].Direccion+'</td><td>'+reg[i].Telefono+'</td><td>'+reg[i].Latitud+'</td><td>'+reg[i].Longitud+'</td><td>');
@@ -232,12 +232,12 @@ function obtenerMarcas(){
 		        var respDatos=$.parseJSON(datos);
 		        var nombre, dir, tel, mail, lat, lng, ruta;
 		        for(var i in respDatos){
-		            nombre=respDatos[i].NombreServicio;//Cambiarlos de acuerdo a los campos de su base de datos
-		            dir=respDatos[i].Direccion;
-		            tel=respDatos[i].Telefono;
-		            lat=respDatos[i].Latitud;
-		            lng=respDatos[i].Longitud;
-		            ruta=respDatos[i].Foto;
+		            nombre=respDatos[i].nombre;//Cambiarlos de acuerdo a los campos de su base de datos
+		            dir=respDatos[i].dir;
+		            tel=respDatos[i].tel;
+		            lat=respDatos[i].latitud;
+		            lng=respDatos[i].longitud;
+		            ruta=respDatos[i].foto;
 		            dibujarMarcas(nombre, dir, tel, lat, lng, ruta);
 	          }
 	      }
