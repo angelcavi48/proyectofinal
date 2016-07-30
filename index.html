@@ -81,7 +81,7 @@ function uploadPhoto(foto) {
 	var params = {};
 	params.value1 = "test";
 	params.value2 = "param";
-	options.params = "params";
+	options.params = params;
 
 	var ft = new FileTransfer();
 	ft.upload(foto,"http://angelcavi48.esy.es/subirArchivo.php",function(r){
@@ -304,9 +304,9 @@ text-align:center;
 	<h1>Registro de Servicios</h1>
       </div>
       <div data-role="content" >
-	  <input type="text" id="Nombre" placeholder="Nombre del servicio" />
-	  <input type="text" id="Direccion" placeholder="Dirección" />
-    <input type="text" id="Telefono" placeholder="Teléfono" />
+	  <input type="text" id="obtnombre" placeholder="Nombre del servicio" />
+	  <input type="text" id="obtdireccion" placeholder="Dirección" />
+    <input type="text" id="obttelefono" placeholder="Teléfono" />
       <option value="1">hospital</option>
       <option value="2">Plaza comercial</option>
       <option value="3">Restaurante</option>
